@@ -1,11 +1,14 @@
 package com.headspring.fizzbuzz;
 
+import java.io.PrintStream;
+
 /**
  * Created by Uri on 12/20/13.
  */
 public class FizzBuzz
 {
     ITask[] aTasks;
+    PrintStream io;
 
     /**
      * Default behavior defaults to original behavior
@@ -14,11 +17,18 @@ public class FizzBuzz
     {
         setTasks(new DivXTask(3, "fizz"),
                  new DivXTask(5, "buzz"));
+        setOutput(System.out);
     }
 
     public FizzBuzz setTasks(ITask... aTasks)
     {
         this.aTasks = aTasks;
+        return this;
+    }
+
+    public FizzBuzz setOutput(PrintStream io)
+    {
+        this.io = io;
         return this;
     }
 
@@ -40,7 +50,7 @@ public class FizzBuzz
     {
         for(int i=min; i<=max; i++)
         {
-            System.out.println(fazz(i));
+            io.println(fazz(i));
         }
     }
 

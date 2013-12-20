@@ -2,6 +2,11 @@ package com.headspring.fizzbuzz;
 
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Random;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -47,7 +52,6 @@ public class FizzBuzzTest
     @Test
     public void testFizzDivX()
     {
-        fizzBuzz = new FizzBuzz();
         fizzBuzz.setTasks(new FizzBuzz.DivXTask(3, "hello"),
                           new FizzBuzz.DivXTask(5, "world"));
         assertThat(fizzBuzz.fazz(3), is("hello"));
@@ -57,7 +61,6 @@ public class FizzBuzzTest
     @Test
     public void testITask()
     {
-        fizzBuzz = new FizzBuzz();
         ITask task1 = new ITask() {
             @Override
             public boolean test(int i) {
@@ -88,4 +91,16 @@ public class FizzBuzzTest
         assertThat(fizzBuzz.fazz(13*7), is(task1.description()+" "+task2.description()));
         assertThat(fizzBuzz.fazz(2), is("2"));
     }
+
+    @Test
+    public void testOutputToFile() throws FileNotFoundException
+    {
+        Random random = new Random();
+        String fileName = "outtest"+random.nextInt()+".txt";
+        File file = new File(fileName);
+        fizzBuzz.setOutput(new PrintStream(file));
+        fizzBuzz.fizzBuzz(1,50);
+        assertThat(file.exists(), is(true));
+    }
+
 }
