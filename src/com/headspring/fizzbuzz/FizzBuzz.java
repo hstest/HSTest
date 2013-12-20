@@ -79,10 +79,4 @@ public class FizzBuzz
             return desc;
         }
     }
-
-    /**
-     * Support arbitrary operators, replace Task
-     * Modify library to support outputting the user wants instead of just the console.
-     * jeff@headspring.com
-     */
 }
