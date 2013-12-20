@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HSTest:jar">
+    <output-path>$PROJECT_DIR$/build/HSTest_jar</output-path>
+    <root id="archive" name="HSTest.jar">
+      <element id="module-output" name="HSTest" />
+    </root>
+  </artifact>
+</component>
