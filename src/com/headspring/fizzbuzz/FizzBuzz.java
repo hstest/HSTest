@@ -55,7 +55,7 @@ public class FizzBuzz
     }
 
     /**
-     * Convenience class... task pass if input is divisible by divisor
+     * Convenience class... test passes if input is divisible by divisor
      * Outputs description
      */
     public static class DivXTask implements ITask
